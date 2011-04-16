@@ -1,0 +1,9 @@
+{ "name": "JRuby - introduction (srug)",
+  "sections": [
+      {"section":"intro"} ,
+      {"section":"integration"},
+      {"section":"runtime"},
+      {"section":"deployment"},
+      {"section":"future"}
+  ]
+}

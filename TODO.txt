@@ -1,0 +1,3 @@
+* remove unused JS
+* move notes on right side with auto-size
+* remove unused css...
