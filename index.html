@@ -1,0 +1,664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>JRuby - introduction (srug)</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/custom.css" type="text/css"/>
+  
+
+  
+    <script type="text/javascript" src="file/notes.js"></script>
+  
+    <script type="text/javascript" src="file/jquery.tooltip.js"></script>
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content" ref="intro/intro/1">
+<h1><strong>JRuby</strong></h1>
+
+<h2>Introduction</h2>
+
+<div class="notes">
+W mojej dzisiejszej prezentacji chcia&#x142;em opowiedzie&#x107; i mam nadziej&#x119;
+zach&#x119;cic Was do zapoznania si&#x119; z JRubim, implementacj&#x105; naszego
+ulubionego j&#x119;zyka na maszyn&#x119; wirtualn&#x105; Javy.
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/2">
+<h2><strong>Agenda</strong></h2>
+
+<hr/>
+
+<h3>History</h3>
+
+<h3>Ruby - Java integration</h3>
+
+<h3>Runtime</h3>
+
+<h3>App Deployment</h3>
+
+<h3>Future</h3>
+
+<div class="notes">
+Tak przedstawia si&#x119; plan prezentacji.
+<br/><br/>
+Na pocz&#x105;tku przypomn&#x119; kr&#xF3;tko histori&#x119; rozwoju jrubiego...
+om&#xF3;wimy sobie kwestie dlaczego kto&#x15B; m&#xF3;g&#x142;by byc zainteresowany t&#x105; implementacj&#x105;.
+<br/><br/>
+To co chyba najbardziej wszystkich interesuje, czyli jakie s&#x105; mo&#x17C;liwo&#x15B;ci integracji z Jav&#x105;?
+Jak si&#x119; to prezentuje? i na ktore aspekty takiej integracji trzeba uwa&#x17C;a&#x107;?
+<br/><br/>
+Oczywi&#x15B;cie wspomnimy tez o korzystaniu w drug&#x105; stron&#x119;, czyli w jaki spos&#xF3;b program
+napisany w Javie, moze wykorzysta&#x107; bibliotek&#x119; rubiow&#x105;..
+<br/><br/>
+Kolejnymi punktami bed&#x105;: kompilator jruby, mozliwosci uruchamiania aplikacji webowych
+oraz nowe mo&#x17C;liwo&#x15B;ci wynikaj&#x105;ce z korzystania z maszyny wirtualnej..
+<br/><br/>
+Na koniec kilka przyk&#x142;ad&#xF3;w rozwi&#x105;za&#x144; ju&#x17C; dost&#x119;pnych. Przedstawi&#x119; te&#x17C; uproszony przyk&#x142;ad
+korzystania w jrubim z biblioteki javowej
+<br/><br/>
+No koniec opowiem o kilku ciekawych projektach zwiazanych z jruby..
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental smaller" ref="intro/intro/3">
+<h2><strong>The story of JRuby</strong></h2>
+
+<hr/>
+
+<ul>
+<li>2001 - created by <strong>Jan Arne Petersen</strong></li>
+<li>2006 - Rails support</li>
+<li>2007 - JRuby 1.0</li>
+<li>2009 - Engine Yard, Ruby 1.9, first <strong>JRubyConf</strong></li>
+<li>2011 - Ruby 1.9.2, profiler, experimental C support</li>
+<li>2011 - Book: <em>"Using JRuby: Bringing Ruby to Java"</em></li>
+<li>2011 - 15 March - <strong>JRuby 1.6</strong></li>
+</ul>
+
+
+<div class="notes">
+Prace nad Jruby zosta&#x142;y ropocz&#x119;te w roku 2001.
+Na tle innych alternatyw MRI jest to impl. najbardziej dojrza&#x142;a, stabilna.
+<br/><br/>
+5 lat po p&#xF3;&#x17A;niej mo&#x17C;na ju&#x17C; by&#x142;o pochwali&#x107; sie tym, &#x17C;e da si&#x119; na jrubim odpali&#x107; railsy,
+ w 2007 projekt dobi&#x142; do wersji 1.0!
+<br/><br/>
+Bardzo wa&#x17C;ne wydarzenie, Oficjalne wsparcie w&#x119;druje z Suna do EngineYard,
+najbardziej wypasionej rubiowej firmy :) w tym roku jrubi staje si&#x119; praktycznie kompatybilny
+z mri 1.9 ...... organizuje sie tez 1szy jruby-conf
+<br/><br/>
+W tym roku, chocia&#x17C; dopiero si&#x119; zacza&#x142;, te&#x17C; sie juz bardzo du&#x17C;o dzia&#x142;o:
+dodano kompatybilno&#x15B;c z 1.9.2
+dodano profiler,
+dodano eksperymentalne wspacie dla C
+<br/><br/>
+Pojawi&#x142;a sie te&#x17C; kolejna, najbardziej aktualna ksi&#x105;&#x17C;ka, kt&#xF3;r&#x105; mog&#x119; poleci&#x107;.
+Nie ukrywam, &#x17C;e pomog&#x142;a mi sporo przy tworzeniu tej prezentacji.
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/4">
+<h2><strong>Current core-team</strong></h2>
+
+<hr/>
+
+<h3>Charles Nutter, Thomas Enebo, Ola Bini, Nick Sieger</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/1">
+<h2><strong>Why use JRuby?</strong></h2>
+
+<hr/>
+
+<h3>Performance</h3>
+
+<h3>Native threads</h3>
+
+<h3>Cross - platform</h3>
+
+<div class="notes">
+Je&#x15B;li por&#xF3;wnamy Ruby i Jav&#x119; jako j&#x119;zyki - nie musz&#x119; nikogo chyba przekonywa&#x107;,
+o tym kt&#xF3;ry j&#x119;zyk jest bardziej zwi&#x119;z&#x142;y, dynamiczny, elastyczny, po prostu ciekawszy.
+Gdy jednak por&#xF3;wnamy dwie inne kwestie, mianowicie mnogo&#x15B;&#x107; bibliotek oraz mo&#x17C;liwo&#x15B;&#x107;i
+platformy uruchomieniowej - korzy&#x15B;&#x107; przechyla si&#x119; jednak na stron&#x119; Javy.
+<br/><br/>
+O ile wi&#x119;ksza liczba bibliotek nie musi wcale by&#x107; dla niekt&#xF3;rych imponuj&#x105;ca,
+o tyle wydajno&#x15B;&#x107; maszyny wirtualnej sprawia, &#x17C;e JRuby w zasadzie dor&#xF3;wna&#x142; ju&#x17C; i
+powoli zaczyna wygrywa&#x107; z CRuby 1.9
+<br/><br/>
+Skoro mamy jav&#x119;, mo&#x17C;emy r&#xF3;wnie&#x17C; korzysta&#x107; z natywnym w&#x105;tk&#xF3;w.
+<br/><br/>
+Jakakolwiek java by nie by&#x142;a, posiada jednak t&#x119; zalet&#x119;, &#x17C;e jest to technologia przeno&#x15B;na,
+co tak&#x17C;e mo&#x17C;emy wykorzysta&#x107; pisz&#x105;c w jruby.
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/2">
+<h2><strong>Why use JRuby?</strong></h2>
+
+<hr/>
+
+<h3>Ways to use legacy Java code base</h3>
+
+<h3>Wrapping a Java library</h3>
+
+<h3>Embedding JRuby in Java environment</h3>
+
+<div class="notes">
+Je&#x15B;li jednak jeste&#x15B;my na tyle otwarci, &#x17C;e mo&#x17C;emy uzna&#x107;, &#x17C;e co&#x15B; napisanego w Javie
+to nie jest czyste z&#x142;o, mamy z JRubim mo&#x17C;liwo&#x15B;&#x107; bezpo&#x15B;redniego korzystania z
+bibliotek javowych. Wcze&#x15B;niejsza integracja polega&#x142;a b&#x105;d&#x17A; to na korzystaniu
+z r&#xF3;&#x17C;nych most&#xF3;w (rjb) b&#x105;d&#x17A; webserwis&#xF3;w.
+<br/><br/>
+Co wazne, w JRuby wo&#x142;anie metod drugiego jezyka dzia&#x142;a w dwie strony.
+Mo&#x17C;emy klas&#x119; napisan&#x105; w Jruby skompilowa&#x107;, i uzy&#x107; jej "po drugiej stronie mocy".
+<br/><br/>
+Je&#x15B;li chodzi o ekosystem bibliotek, najpopularniejsze repo javowe,
+maven artifacts zawiera w tym momencie oko&#x142;o 150 000 s&#x142;oik&#xF3;w, d&#x17C;emik&#xF3;w natomiast
+mamy oko&#x142;o 23,000
+<br/><br/>
+Przyk&#x142;ady kodu zobaczmy za chwile...
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/3">
+<h2><strong>Why use JRuby?</strong></h2>
+
+<hr/>
+
+<h3>Take Rails into the Enterprise ;)</h3>
+
+<div class="notes">
+Niestety poza aspektem czysto technicznym, nie mo&#x17C;emy zapomina&#x107; o pewnego rodzaju
+prze&#x15B;wiadczeniu, &#x17C;e sporo firm nie uwa&#x17C;a(&#x142;o) rubiego jako powa&#x17C;na technologi&#x119;.
+Mo&#x17C;liwo&#x15B;&#x107; skorzystania z Rails&#xF3;w uruchomionych na kontenerze javowym
+otwar&#x142;a nam jakby furtk&#x119; do niekt&#xF3;rych projekt&#xF3;w.
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/4">
+<h2><strong>Common scenarios</strong></h2>
+
+<hr/>
+
+<h3>Java backend + Rails deployed on Tomcat</h3>
+
+<h3>ActiveModel wrappers around Java models (add DSL /improve API)</h3>
+
+<h3>Development tools (testing, building, project management)</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/5">
+<h2><strong>Possible disadvantages</strong></h2>
+
+<hr/>
+
+<h3>Requires more momory</h3>
+
+<h3>Startup time</h3>
+
+<h3>C extensions - work in progress</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/6">
+<h2><strong>Ruby &amp; Java integration</strong></h2>
+
+<div class="notes">
+Przejd&#x17A;my teraz do integracji obu j&#x119;zyk&#xF3;w
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/7">
+<h2>Installation</h2>
+
+<h3>RVM</h3>
+
+<pre class="sh_bash"><code>rvm install jruby-1.6.0
+rvm use jruby
+
+ruby -v
+# =&gt; jruby 1.6.0 (ruby 1.8.7 patchlevel 330)</code></pre>
+
+<h3>System</h3>
+
+<pre class="sh_bash"><code>sudo apt-get install jruby</code></pre>
+
+<h3>Source</h3>
+
+<pre class="sh_bash"><code>git clone https://github.com/jruby/jruby.git
+ant</code></pre>
+
+<div class="notes">
+Najlepiej zainstalowac jruby z RVMa, u&#x17C;ywam tego narz&#x119;dzia ju&#x17C; chyba ponad p&#xF3;&#x142; roku.
+Trzeba uwa&#x17C;a&#x107; na gemsety #global, pozatym zero problem&#xF3;w..
+
+Jesli chcemy mie&#x107; najnowsz&#x105; wersj&#x119; mo&#x17C;na zawsze sci&#x105;gna&#x107; paczk&#x119;, ustawi&#x107; jruby na scie&#x17C;ce i gotowe..
+
+Na windowsa jest ca&#x142;kiem fajny isntaller
+
+&#x179;r&#xF3;d&#x142;a s&#x105; na githubie
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/8">
+<h2>Options</h2>
+
+<pre class="sh_bash"><code>-J-Xmx512m    Pass option to JVM
+
+--profile     run with profiler
+
+--client      use the non-optimizing "client" JVM
+              (improves startup; default)
+--server      use the optimizing "server" JVM
+              (improves performance)
+
+--1.8         Ruby 1.8.x compatibility (default)
+--1.9         Ruby 1.9.x compatibility</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/9">
+<h2>1.9 compatibility</h2>
+
+<pre class="sh_bash"><code>jruby --1.9 -e "sum = -&gt; a, b { a + b }; p sum[2,3]"
+# =&gt; 5
+
+jruby -e "sum = -&gt; a, b { a + b }; p sum[2,3]"
+# =&gt; SyntaxError: -e:1: syntax error, unexpected tGT
+sum = -&gt; a, b { a + b }; puts sum[2,3]
+        ^</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/10">
+<h2><strong>Ruby &amp; Java integration</strong></h2>
+
+<hr/>
+
+<h3>Loading classes</h3>
+
+<h3>Using objects</h3>
+
+<h3>Passing parameters</h3>
+
+<h3>Overloaded methods</h3>
+
+<h3>Java interfaces</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/11">
+<h2>Setting Classpath</h2>
+
+<h3>Env variable</h3>
+
+<h3>From source</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/12">
+<h2>Setting Classpath</h2>
+
+<h3>Env variable</h3>
+
+<pre class="sh_bash"><code>$ jruby -J-cp $CLASSPATH:/path/to/library.jar</code></pre>
+
+<h3>From source</h3>
+
+<pre class="sh_Ruby"><code>require 'java'
+$CLASSPATH &lt;&lt; '/path/to/library.jar'
+
+# or..
+require '/path/to/library.jar'
+
+# or..
+$LOAD_PATH &lt;&lt; '/path/to'
+require 'jemmy.jar'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/13">
+<h2>Loading classes</h2>
+
+<h3>By namespaces</h3>
+
+<h3>By importing</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/14">
+<h2>Loading classes</h2>
+
+<h3>By namespaces</h3>
+
+<pre class="sh_Ruby"><code># common namespaces (com, org, java, and javax)
+require 'java'
+java.lang.StringBuffer
+
+# default package (prepend Java::)
+Java::MyTopLevelClass</code></pre>
+
+<h3>By importing</h3>
+
+<pre class="sh_Ruby"><code>StringBuffer = java.lang.StringBuffer
+
+# shortcut:
+java_import java.lang.StringBuffer
+
+# alias
+java_import 'java.lang.String' do |pckg, classname|
+  'JString'
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/15">
+<h2>Using objects</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/16">
+<h2>Using objects</h2>
+
+<h3>.. Java idioms translated into &#x201C;the Ruby way&#x201D;..</h3>
+
+<pre class="sh_ruby"><code># java getters/setter =&gt; attrs accessors
+
+
+user.setName('Matz')
+user.name = 'Matz'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/17">
+<h2>Using objects</h2>
+
+<h3>.. Java idioms translated into &#x201C;the Ruby way&#x201D;..</h3>
+
+<pre class="sh_ruby"><code># camelCase =&gt; snake_case
+
+java_import java.lang.System
+System.currentTimeMillis
+System.current_time_millis</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/18">
+<h2>Using objects</h2>
+
+<h3>.. Java idioms translated into &#x201C;the Ruby way&#x201D;..</h3>
+
+<pre class="sh_ruby"><code># object construction
+# new URL(String spec)
+# new URL(String protocol, String host, String file)
+URL.new 'http://srug.pl'
+URL.new 'http' , 'srug.pl' , '/jruby'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/19">
+<h2>Passing parameters</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/20">
+<h2>Passing parameters</h2>
+
+<h3>Basic Types</h3>
+
+<pre class="sh_ruby"><code>String   # =&gt; java.lang.String
+Fixnum   # =&gt; int / java.lang.Float / ...
+Float    # =&gt; float / java.lang.Double
+NilClass # =&gt; null reference
+Bignum   # =&gt; java.math.BigInteger</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/21">
+<h2>Passing parameters</h2>
+
+<h3>Some Java code ...</h3>
+
+<pre class="sh_java"><code>public class Dude {
+    public static String whatsMyType(Object o) {
+        return o.getClass().getName();
+    }
+}</code></pre>
+
+<h3>Check parameter type ...</h3>
+
+<pre class="sh_ruby"><code>Dude.whats_my_type(['a', 'b'])
+# =&gt; "org.jruby.RubyArray"
+
+Dude.whats_my_type(['a', 'b'].to_java)
+# =&gt; "[Ljava.lang.Object;"
+
+['a','b'].to_java(:string).java_class.name
+# =&gt; "[Ljava.lang.String;"</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/22">
+<h2>Java interfaces</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/23">
+<h2>Java interfaces</h2>
+
+<h3>Java</h3>
+
+<pre class="sh_java"><code>static Callable&lt;Object&gt; callable(Runnable task);</code></pre>
+
+<h3>Ruby</h3>
+
+<pre class="sh_ruby"><code>require 'java'
+java_import java.lang.Runnable
+java_import java.util.concurrent.Executors
+
+class Foo
+  include Runnable
+
+  def run
+    puts "Run!"
+  end
+end
+
+call_me = Executors.callable(Foo.new)
+call_me.call</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/24">
+<h2>Java interfaces</h2>
+
+<h3>Java</h3>
+
+<pre class="sh_java"><code>static Callable&lt;Object&gt; callable(Runnable task);</code></pre>
+
+<h3>Ruby</h3>
+
+<pre class="sh_ruby"><code>require 'java'
+java_import java.lang.Runnable
+java_import java.util.concurrent.Executors
+
+# for single-methods i-faces
+call_me = Executors.callable do
+  puts "Run!"
+end
+call_me.call</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/1">
+<h2><strong>Runtime modes</strong></h2>
+
+<hr/>
+
+<h3>Interpreted</h3>
+
+<h3>Just-in-time</h3>
+
+<h3>Ahead-of-time</h3>
+
+<div class="notes">
+Programy pisane w JRuby mo&#x17C;na uruchamia&#x107; na kilka sposob&#xF3;w. Tym najcze&#x15B;ciej spotykanym jest uruchamianie
+kodu tak samo jak w wiekszo&#x15B;ci pozosta&#x142;ych implementacji Ruby, tzn poprzez interpreter, aczkolwiek...
+<br/><br/>
+R&#xF3;&#x17C;nica w przypadku JRuby jest taka, &#x17C;e wykorzystywany jest r&#xF3;wniez kompilator JIT,
+kt&#xF3;ry to kompiluje "w locie" kod najcz&#x119;&#x15B;ciej wykonywany. Mo&#x17C;emy wykorzystac tutaj dobrodziejstwo JVM :)
+<br/><br/>
+Domy&#x15B;lnie jruby uruchamiany jest z kompilacja JIT. Pozosta&#x142;e opcje to kompilowanie
+wszystkiego "z g&#xF3;ry" - ahead-of-time. W tym trybie JVM mo&#x17C;e dokona&#x107; mniejszej liczby
+optymalizacji poniewa&#x17C; nie wie jeszcze, kt&#xF3;re fragmenty kodu b&#x119;d&#x105; wykonywane najcz&#x119;&#x15B;ciej.
+</div>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/2">
+<h2><strong>JIT</strong></h2>
+
+<h3>Performance improves over time...</h3>
+
+<pre class="sh_ruby"><code># performance.rb
+require 'benchmark'
+
+def expensive(i)
+  # very expensive computations...
+end
+
+5.times do
+  timing = Benchmark.measure do
+    1000.times { |i| expensive(i) }
+  end
+  puts timing
+end</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/3">
+<pre class="sh_bash"><code>jruby -J-Djruby.compile.mode=OFF performance.rb
+  0.086000   0.000000   0.086000 (  0.052000)
+  0.023000   0.000000   0.023000 (  0.023000)
+  0.012000   0.000000   0.012000 (  0.012000)
+  0.013000   0.000000   0.013000 (  0.013000)
+
+jruby performance.rb
+  0.065000   0.000000   0.065000 (  0.047000)
+  0.021000   0.000000   0.021000 (  0.021000)
+  0.014000   0.000000   0.014000 (  0.014000)
+  0.009000   0.000000   0.009000 (  0.009000)</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/4">
+<h2><strong>Write code to make use of JIT</strong></h2>
+
+<hr/>
+
+<h3>Try to not generate code at runtime</h3>
+
+<h3>Create small methods</h3></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental smaller" ref="runtime/runtime/5">
+<h1><strong>When to use AOT?</strong></h1>
+
+<ul>
+<li>System requires .class files</li>
+<li>Hide source code</li>
+<li>AOT is faster than JIT (Android)</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/6">
+<h2>JRuby AOT compiler</h2>
+
+<pre class="sh_bash"><code>jrubyc program.rb         # =&gt; Program.class
+jrubyc --java program.rb  # =&gt; Program.java
+jrubyc --javac program.rb # =&gt; Program.java Program.class</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/7">
+<h3>Using compiled Ruby class in ... Ruby ;)</h3>
+
+<pre class="sh_ruby"><code># user.rb :
+class User
+  def self.create(args={})
+    @args = args
+  end
+end
+
+# jrubyc user.rb =&gt; user.class
+
+# other.rb:
+require 'java'
+require 'user' # will use user.class
+User.create :name =&gt; 'Marek'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/1">
+<h2><strong>Application deployment</strong></h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/2">
+<h2><strong>Warbler</strong></h2>
+
+<h3>To package Rails(rack) app into WAR file</h3>
+
+<pre class="sh_bash"><code>gem install warbler
+warble executable war   # =&gt; rails_app.war</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/3">
+<h2><strong>Embedded servers</strong></h2>
+
+<h3>Trinidad  - A wrapper around Tomcat.</h3>
+
+<h3>Mizuno    - A wrapper around Jetty.</h3>
+
+<h3>Aspen     - A server based on Netty, a Java NIO framework.</h3>
+
+<h3>TorqueBox - A server based on JBoss.</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/4">
+<h2><strong>Platform as a service</strong></h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/5">
+<h2><strong>App Engine</strong></h2>
+
+<h3>Sinatra, Rails 2.3.x</h3>
+
+<h3>DataMapper</h3>
+
+<pre class="sh_bash"><code>gem install google-appengine</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/6">
+<h2><strong>Amazon Elastic Beanstalk</strong></h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/7">
+<h2><strong>Engine Yard</strong></h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="deployment/deployment/8">
+<h2><strong>Heroku?</strong></h2>
+
+<h3>Not yet... :(</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="future/future/1">
+<h1><strong>Future of JRuby?</strong></h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="future/future/2">
+<h2><strong>Mirah Project</strong></h2>
+
+<h3>Mirah is a customizable programming language</h3>
+
+<h3>featuring static types, local type inference</h3>
+
+<h3>and a heavily Ruby-inspired syntax.</h3>
+
+<h3>Mirah currently includes a typer/compiler backend for</h3>
+
+<h3>the JVM which can output either JVM bytecode</h3>
+
+<h3>or Java source files.</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="future/future/3">
+<h2><strong>Mirah Project</strong></h2>
+
+<h3>The word &#x201C;mirah&#x201D; means &#x201C;ruby&#x201D; in Javanese,</h3>
+
+<h3>the language of the island of Java</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="future/future/4">
+<h2><strong>Mirah Project</strong></h2>
+
+<pre class="sh_bash"><code>gem install mirah
+mirah -e 'puts "Hello, Mirah!"'</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="future/future/5">
+<h2><strong>Where to start?</strong></h2>
+
+<hr/>
+
+<h3>http://www.jruby.org</h3>
+
+<h3>https://github.com/jruby/jruby/wiki</h3>
+
+<h3>http://blog.headius.com</h3></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="future/future/6">
+<h2><strong>Thank You! :)</strong></h2></div>
+</div>
+</div>
+
+</body>
+</html>
