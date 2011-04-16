@@ -14,6 +14,11 @@
 
 !SLIDE
 ## **Mirah Project** ##
+### Statically-typed, object-oriented
+### Ruby-inspired syntax
+
+!SLIDE
+## **Mirah Project** ##
 
 ### The word “mirah” means “ruby” in Javanese,
 ### the language of the island of Java
@@ -24,6 +29,14 @@
     @@@ bash
     gem install mirah
     mirah -e 'puts "Hello, Mirah!"'
+
+!SLIDE
+## **Mirah Project** ##
+
+    @@@ ruby
+    def foo(a:int = 1, b:int = 2)
+      puts a + b
+    end
 
 !SLIDE
 ## **Where to start?** ##
