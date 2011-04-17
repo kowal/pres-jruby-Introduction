@@ -78,14 +78,7 @@
 <div class="slide" data-transition="none"><div class="content" ref="intro/intro/1">
 <h1><strong>JRuby</strong></h1>
 
-<h2>Introduction</h2>
-
-<div class="notes">
-W mojej dzisiejszej prezentacji chcia&#x142;em opowiedzie&#x107; i mam nadziej&#x119;
-zach&#x119;cic Was do zapoznania si&#x119; z JRubim, implementacj&#x105; naszego
-ulubionego j&#x119;zyka na maszyn&#x119; wirtualn&#x105; Javy.
-</div>
-</div>
+<h2>Introduction</h2></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/2">
 <h2><strong>Agenda</strong></h2>
 
@@ -99,29 +92,7 @@ ulubionego j&#x119;zyka na maszyn&#x119; wirtualn&#x105; Javy.
 
 <h3>App Deployment</h3>
 
-<h3>Future</h3>
-
-<div class="notes">
-Tak przedstawia si&#x119; plan prezentacji.
-<br/><br/>
-Na pocz&#x105;tku przypomn&#x119; kr&#xF3;tko histori&#x119; rozwoju jrubiego...
-om&#xF3;wimy sobie kwestie dlaczego kto&#x15B; m&#xF3;g&#x142;by byc zainteresowany t&#x105; implementacj&#x105;.
-<br/><br/>
-To co chyba najbardziej wszystkich interesuje, czyli jakie s&#x105; mo&#x17C;liwo&#x15B;ci integracji z Jav&#x105;?
-Jak si&#x119; to prezentuje? i na ktore aspekty takiej integracji trzeba uwa&#x17C;a&#x107;?
-<br/><br/>
-Oczywi&#x15B;cie wspomnimy tez o korzystaniu w drug&#x105; stron&#x119;, czyli w jaki spos&#xF3;b program
-napisany w Javie, moze wykorzysta&#x107; bibliotek&#x119; rubiow&#x105;..
-<br/><br/>
-Kolejnymi punktami bed&#x105;: kompilator jruby, mozliwosci uruchamiania aplikacji webowych
-oraz nowe mo&#x17C;liwo&#x15B;ci wynikaj&#x105;ce z korzystania z maszyny wirtualnej..
-<br/><br/>
-Na koniec kilka przyk&#x142;ad&#xF3;w rozwi&#x105;za&#x144; ju&#x17C; dost&#x119;pnych. Przedstawi&#x119; te&#x17C; uproszony przyk&#x142;ad
-korzystania w jrubim z biblioteki javowej
-<br/><br/>
-No koniec opowiem o kilku ciekawych projektach zwiazanych z jruby..
-</div>
-</div>
+<h3>Future</h3></div>
 </div><div class="slide" data-transition="none"><div class="content bullets incremental smaller" ref="intro/intro/3">
 <h2><strong>The story of JRuby</strong></h2>
 
@@ -136,27 +107,6 @@ No koniec opowiem o kilku ciekawych projektach zwiazanych z jruby..
 <li>2011 - Book: <em>"Using JRuby: Bringing Ruby to Java"</em></li>
 <li>2011 - 15 March - <strong>JRuby 1.6</strong></li>
 </ul>
-
-
-<div class="notes">
-Prace nad Jruby zosta&#x142;y ropocz&#x119;te w roku 2001.
-Na tle innych alternatyw MRI jest to impl. najbardziej dojrza&#x142;a, stabilna.
-<br/><br/>
-5 lat po p&#xF3;&#x17A;niej mo&#x17C;na ju&#x17C; by&#x142;o pochwali&#x107; sie tym, &#x17C;e da si&#x119; na jrubim odpali&#x107; railsy,
- w 2007 projekt dobi&#x142; do wersji 1.0!
-<br/><br/>
-Bardzo wa&#x17C;ne wydarzenie, Oficjalne wsparcie w&#x119;druje z Suna do EngineYard,
-najbardziej wypasionej rubiowej firmy :) w tym roku jrubi staje si&#x119; praktycznie kompatybilny
-z mri 1.9 ...... organizuje sie tez 1szy jruby-conf
-<br/><br/>
-W tym roku, chocia&#x17C; dopiero si&#x119; zacza&#x142;, te&#x17C; sie juz bardzo du&#x17C;o dzia&#x142;o:
-dodano kompatybilno&#x15B;c z 1.9.2
-dodano profiler,
-dodano eksperymentalne wspacie dla C
-<br/><br/>
-Pojawi&#x142;a sie te&#x17C; kolejna, najbardziej aktualna ksi&#x105;&#x17C;ka, kt&#xF3;r&#x105; mog&#x119; poleci&#x107;.
-Nie ukrywam, &#x17C;e pomog&#x142;a mi sporo przy tworzeniu tej prezentacji.
-</div>
 </div>
 </div><div class="slide" data-transition="none"><div class="content" ref="intro/intro/4">
 <h2><strong>Current core-team</strong></h2>
@@ -173,24 +123,7 @@ Nie ukrywam, &#x17C;e pomog&#x142;a mi sporo przy tworzeniu tej prezentacji.
 
 <h3>Native threads</h3>
 
-<h3>Cross - platform</h3>
-
-<div class="notes">
-Je&#x15B;li por&#xF3;wnamy Ruby i Jav&#x119; jako j&#x119;zyki - nie musz&#x119; nikogo chyba przekonywa&#x107;,
-o tym kt&#xF3;ry j&#x119;zyk jest bardziej zwi&#x119;z&#x142;y, dynamiczny, elastyczny, po prostu ciekawszy.
-Gdy jednak por&#xF3;wnamy dwie inne kwestie, mianowicie mnogo&#x15B;&#x107; bibliotek oraz mo&#x17C;liwo&#x15B;&#x107;i
-platformy uruchomieniowej - korzy&#x15B;&#x107; przechyla si&#x119; jednak na stron&#x119; Javy.
-<br/><br/>
-O ile wi&#x119;ksza liczba bibliotek nie musi wcale by&#x107; dla niekt&#xF3;rych imponuj&#x105;ca,
-o tyle wydajno&#x15B;&#x107; maszyny wirtualnej sprawia, &#x17C;e JRuby w zasadzie dor&#xF3;wna&#x142; ju&#x17C; i
-powoli zaczyna wygrywa&#x107; z CRuby 1.9
-<br/><br/>
-Skoro mamy jav&#x119;, mo&#x17C;emy r&#xF3;wnie&#x17C; korzysta&#x107; z natywnym w&#x105;tk&#xF3;w.
-<br/><br/>
-Jakakolwiek java by nie by&#x142;a, posiada jednak t&#x119; zalet&#x119;, &#x17C;e jest to technologia przeno&#x15B;na,
-co tak&#x17C;e mo&#x17C;emy wykorzysta&#x107; pisz&#x105;c w jruby.
-</div>
-</div>
+<h3>Cross - platform</h3></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/2">
 <h2><strong>Why use JRuby?</strong></h2>
 
@@ -200,38 +133,13 @@ co tak&#x17C;e mo&#x17C;emy wykorzysta&#x107; pisz&#x105;c w jruby.
 
 <h3>Wrapping a Java library</h3>
 
-<h3>Embedding JRuby in Java environment</h3>
-
-<div class="notes">
-Je&#x15B;li jednak jeste&#x15B;my na tyle otwarci, &#x17C;e mo&#x17C;emy uzna&#x107;, &#x17C;e co&#x15B; napisanego w Javie
-to nie jest czyste z&#x142;o, mamy z JRubim mo&#x17C;liwo&#x15B;&#x107; bezpo&#x15B;redniego korzystania z
-bibliotek javowych. Wcze&#x15B;niejsza integracja polega&#x142;a b&#x105;d&#x17A; to na korzystaniu
-z r&#xF3;&#x17C;nych most&#xF3;w (rjb) b&#x105;d&#x17A; webserwis&#xF3;w.
-<br/><br/>
-Co wazne, w JRuby wo&#x142;anie metod drugiego jezyka dzia&#x142;a w dwie strony.
-Mo&#x17C;emy klas&#x119; napisan&#x105; w Jruby skompilowa&#x107;, i uzy&#x107; jej "po drugiej stronie mocy".
-<br/><br/>
-Je&#x15B;li chodzi o ekosystem bibliotek, najpopularniejsze repo javowe,
-maven artifacts zawiera w tym momencie oko&#x142;o 150 000 s&#x142;oik&#xF3;w, d&#x17C;emik&#xF3;w natomiast
-mamy oko&#x142;o 23,000
-<br/><br/>
-Przyk&#x142;ady kodu zobaczmy za chwile...
-</div>
-</div>
+<h3>Embedding JRuby in Java environment</h3></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/3">
 <h2><strong>Why use JRuby?</strong></h2>
 
 <hr/>
 
-<h3>Take Rails into the Enterprise ;)</h3>
-
-<div class="notes">
-Niestety poza aspektem czysto technicznym, nie mo&#x17C;emy zapomina&#x107; o pewnego rodzaju
-prze&#x15B;wiadczeniu, &#x17C;e sporo firm nie uwa&#x17C;a(&#x142;o) rubiego jako powa&#x17C;na technologi&#x119;.
-Mo&#x17C;liwo&#x15B;&#x107; skorzystania z Rails&#xF3;w uruchomionych na kontenerze javowym
-otwar&#x142;a nam jakby furtk&#x119; do niekt&#xF3;rych projekt&#xF3;w.
-</div>
-</div>
+<h3>Take Rails into the Enterprise ;)</h3></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/4">
 <h2><strong>Common scenarios</strong></h2>
 
@@ -253,12 +161,7 @@ otwar&#x142;a nam jakby furtk&#x119; do niekt&#xF3;rych projekt&#xF3;w.
 
 <h3>C extensions - work in progress</h3></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/6">
-<h2><strong>Ruby &amp; Java integration</strong></h2>
-
-<div class="notes">
-Przejd&#x17A;my teraz do integracji obu j&#x119;zyk&#xF3;w
-</div>
-</div>
+<h2><strong>Ruby &amp; Java integration</strong></h2></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/7">
 <h2>Installation</h2>
 
@@ -277,19 +180,7 @@ ruby -v
 <h3>Source</h3>
 
 <pre class="sh_bash"><code>git clone https://github.com/jruby/jruby.git
-ant</code></pre>
-
-<div class="notes">
-Najlepiej zainstalowac jruby z RVMa, u&#x17C;ywam tego narz&#x119;dzia ju&#x17C; chyba ponad p&#xF3;&#x142; roku.
-Trzeba uwa&#x17C;a&#x107; na gemsety #global, pozatym zero problem&#xF3;w..
-
-Jesli chcemy mie&#x107; najnowsz&#x105; wersj&#x119; mo&#x17C;na zawsze sci&#x105;gna&#x107; paczk&#x119;, ustawi&#x107; jruby na scie&#x17C;ce i gotowe..
-
-Na windowsa jest ca&#x142;kiem fajny isntaller
-
-&#x179;r&#xF3;d&#x142;a s&#x105; na githubie
-</div>
-</div>
+ant</code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="integration/integration/8">
 <h2>Options</h2>
 
@@ -498,20 +389,7 @@ call_me.call</code></pre></div>
 
 <h3>Just-in-time</h3>
 
-<h3>Ahead-of-time</h3>
-
-<div class="notes">
-Programy pisane w JRuby mo&#x17C;na uruchamia&#x107; na kilka sposob&#xF3;w. Tym najcze&#x15B;ciej spotykanym jest uruchamianie
-kodu tak samo jak w wiekszo&#x15B;ci pozosta&#x142;ych implementacji Ruby, tzn poprzez interpreter, aczkolwiek...
-<br/><br/>
-R&#xF3;&#x17C;nica w przypadku JRuby jest taka, &#x17C;e wykorzystywany jest r&#xF3;wniez kompilator JIT,
-kt&#xF3;ry to kompiluje "w locie" kod najcz&#x119;&#x15B;ciej wykonywany. Mo&#x17C;emy wykorzystac tutaj dobrodziejstwo JVM :)
-<br/><br/>
-Domy&#x15B;lnie jruby uruchamiany jest z kompilacja JIT. Pozosta&#x142;e opcje to kompilowanie
-wszystkiego "z g&#xF3;ry" - ahead-of-time. W tym trybie JVM mo&#x17C;e dokona&#x107; mniejszej liczby
-optymalizacji poniewa&#x17C; nie wie jeszcze, kt&#xF3;re fragmenty kodu b&#x119;d&#x105; wykonywane najcz&#x119;&#x15B;ciej.
-</div>
-</div>
+<h3>Ahead-of-time</h3></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="runtime/runtime/2">
 <h2><strong>JIT</strong></h2>
 
