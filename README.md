@@ -1,4 +1,4 @@
-srug-jruby
+JRuby Introduction (2011)
 ==========
 
 **JRuby Introduction** talk:
