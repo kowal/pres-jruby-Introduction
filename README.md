@@ -1,6 +1,6 @@
 JRuby Introduction (2011)
 ==========
 
-**JRuby Introduction** talk:
-* presented on [SRUG meeting](https://srug.pl/article/2011/04/06/szczegoly-dotyczace-kwietniowego-spotkania.html) (16.04.2011)
-* [slides](http://kowal.github.io/srug-jruby)
+* Presentation [slides](http://kowal.github.io/srug-jruby)
+* Presented on [SRUG meeting](https://srug.pl/article/2011/04/06/szczegoly-dotyczace-kwietniowego-spotkania.html) (16.04.2011)
+* Done with *showoff* (some old version)
